@@ -1,0 +1,24 @@
+.studentListItem {
+	width: 690px;
+	height: 50px;
+	float: left;
+	
+	cursor: pointer;
+	border: 1px solid #000;
+	-webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+}
+
+.studentName{
+	width: 400px;
+	height: 50px;
+	float: left;
+	font-weight: bold;
+}
+
+.submissionDate{
+	width: 200px;
+	height: 50px;
+	float: left;
+}

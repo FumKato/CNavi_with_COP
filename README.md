@@ -1,2 +1,2 @@
-CNavi_with_COP
-==============
+This is a repository for case study of COP.
+

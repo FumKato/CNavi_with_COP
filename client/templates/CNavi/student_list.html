@@ -1,0 +1,9 @@
+<template name="student_list">
+	<div id="lessonName">{{get_lesson_name}}</div>
+	{{#each get_submissions}}
+		<div id={{user_id}} class="studentListItem">
+			<div class="studentName">{{user_name}}</div>
+			<div class="submissionDate">{{date.year}}/{{date.month}}/{{date.date}} {{date.hours}}:{{date.minutes}}</div>
+		</div>
+	{{/each}}
+</template>

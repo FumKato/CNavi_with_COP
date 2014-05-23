@@ -1,0 +1,32 @@
+#classListTable{
+	border: solid 1px gray;
+	table-layout: fixed;
+}
+
+#classListTableHead{
+	background-color: #8899FF;
+}
+
+.classListTableName{
+	border: solid 1px #000055;
+	width: 498px;
+}
+
+.classListTableDay{
+	border: solid 1px #000055;
+	width: 80px;
+}
+
+.classListTablePeriod{
+	border: solid 1px #000055;
+	width: 50px;
+}
+
+.classListTableSemester{
+	border: solid 1px #000055;
+	width: 70px;
+}
+
+.classListTableItem{
+	cursor: pointer;
+}

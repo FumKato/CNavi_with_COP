@@ -1,0 +1,18 @@
+<head>
+  <title>CNavi</title>
+</head>
+
+<body>
+  <div id="cNavi">{{> cnavi}}</div>
+</body>
+
+<template name="cnavi">
+	{{{render_header}}}
+	<div class="cnavi_contents" id="login">{{> login}}</div>
+	<div class="cnavi_contents" id="classList">{{> class_list}}</div>
+	<div class="cnavi_contents" id="lessonList">{{> lesson_list}}</div>
+	<div class="cnavi_contents" id="classList">{{> class_list}}</div>
+	<div class="cnavi_contents" id="exam">{{> exam}}</div>
+	<div class="cnavi_contents" id="submission">{{> submission}}</div>
+	<div class="cnavi_contents" id="studentList">{{> student_list}}</div>
+</template>

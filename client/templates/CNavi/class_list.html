@@ -1,0 +1,13 @@
+<template name="class_list">
+	<table id="classListTable">
+		<tr id="classListTableHead">
+			<th class="classListTableName">Class name</th>
+			<th class="classListTableDay">Day</th>
+			<th class="classListTablePeriod">Period</th>
+			<th class="classListTableSemester">Semester</th>
+		</tr>
+		{{#each get_classes}}
+			{{{render_class_list_item this}}}
+		{{/each}}
+	</table>
+</template>

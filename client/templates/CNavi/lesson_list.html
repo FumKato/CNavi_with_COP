@@ -1,0 +1,10 @@
+<template name="lesson_list">
+	<div class="className">{{get_class_name}}</div>
+	{{#each get_lessons}}
+		<div id={{_id}} class={{get_lesson_list_item_class this}}>
+			<div class="lessonNumber">{{number}}</div>
+			<div class="lessonName">{{name}}</div>
+			<div class="lessonDate">{{month}}/{{date}}</div>
+		</div>
+	{{/each}}
+</template>

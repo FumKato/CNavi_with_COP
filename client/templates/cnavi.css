@@ -1,0 +1,96 @@
+#cNavi{
+	width: 700px;
+}
+
+#header{
+	width: 700px;
+	height: 40px;
+	float: left;
+}
+
+#logo{
+	width: 197px;
+	height: 38px;
+	
+	border: 1px solid #000;
+	-webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+	float: left;
+}
+
+#headerName{
+	width: 498px;
+	height: 38px;
+	float: left;
+	margin-left: 1px;
+	
+	border: 1px solid #000;
+	-webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    
+    font-size: 20px;
+}
+
+#login{
+	width: 700px;
+	float: left;
+	margin-top: 30px;
+	
+	border: 1px solid #000;
+	-webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+}
+
+#classList {
+	width: 700px;
+	float: left;
+	margin-top: 30px;
+	display: none;
+}
+
+#exam {
+	display: none;
+}
+
+#lessonList {
+	width: 700px;
+	float: left;
+	margin-top: 30px;
+	display: none;
+}
+
+#submission {
+	width: 700px;
+	float: left;
+	margin-top: 30px;
+	display: none;
+}
+
+#studentList {
+	width: 700px;
+	float: left;
+	margin-top: 30px;
+	display: none;
+}
+
+.red {
+	background-color: #FFDDDD;
+	color: #FF0000;
+}
+
+.blue {
+	background-color: #DDDDFF;
+	color: #0000FF;
+}
+
+.green {
+	background-color: #EEFFEE;
+	color: #00FF00;
+}

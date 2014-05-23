@@ -1,0 +1,9 @@
+<template name="submission">
+	<div id="lessonName">{{get_lesson_name}}</div>
+	{{#each get_questions}}
+		<div class="questionListItem">
+			Q{{num}}. {{question}}
+		</div>
+		{{{render_answer num question}}}
+	{{/each}}
+</template>

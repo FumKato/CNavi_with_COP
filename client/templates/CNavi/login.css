@@ -1,0 +1,53 @@
+#loginForm{
+	width: 500px;
+	margin-top: 150px;
+}
+
+.loginSidePadding{
+	width: 180px;
+	height: 500px;
+	float: left;
+
+}
+
+div.loginFormContents {
+	width: 300px;
+	height: 30px;
+	margin-top: 20px;
+	
+	border-left: 5px solid #000055;
+	border-bottom: 1px solid #000055;
+	float: left;
+}
+
+div.loginFormContentsName {
+	width: 100px;
+	height: 30px;
+	
+	font-size: 20px;
+	text-align: right;
+	float: left;
+}
+
+.loginFormTextarea {
+	width: 150px;
+	height: 20px;
+	float: left;
+	margin-left: 10px;
+}
+
+div.loginFormButtons {
+	width: 300px;
+	height: 100px;
+	
+	margin-top: 20px;
+	float: left;
+}
+
+.loginFormButton {
+	-webkit-appearance: none;
+	width: 80px;
+	height: 30px;
+	margin-left: 100px;
+	float: left;
+}
