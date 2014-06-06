@@ -11,24 +11,9 @@ CNaviView = function(){
 		$(targetID).show();
 	};
 	
-	_this.prototype.render_header = function(user){
-		if(user == null) {
-			return '<div id="header"><div id="logo">CNavi</div><div id="headerName"></div></div>';
-		}
-		var class_name = '';
-		switch(user.role){
-			case 'student':
-				class_name = 'green';
-				break;
-			case 'teacher':
-				class_name = 'blue';
-				break;
-			case 'assistant':
-				class_name = 'red';
-				break;
-		}
-		return '<div id="header" class="' + class_name + '"><div id="logo">CNavi</div><div id="headerName">Welcome back <b>' + 
-			user.name + '</b></div></div>';
+	_this.prototype.render_header = function(){
+		//default operation (no role)
+		return '<div id="header"><div id="logo">CNavi</div><div id="headerName"></div></div>';
 	};
 };
 

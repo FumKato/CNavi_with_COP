@@ -19,7 +19,6 @@ LessonListView = function(){
 	_this.prototype.get_lesson_list_item_class = function(lesson){
 		var date = new Date();
 		var className = "lessonListItem ";
-		if(Session.get('myself').role == 'teacher' || Session.get('myself').role == 'assistant') return className;
 		if(lesson.month < date.getMonth() || (lesson.month == date.getMonth() && lesson.date < date.getDate())){
 			className += "overed";
 		}
