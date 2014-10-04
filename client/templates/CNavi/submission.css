@@ -45,3 +45,34 @@
     -moz-border-radius: 7px;
     border-radius: 7px;
 }
+
+#submissionButtons{
+	width: 690px;
+	height: 100px;
+	margin-top: 10px;
+	float: left;
+}
+
+.backButton{
+	width: 50px;
+	float: left;
+	margin-left: 200px;
+}
+
+.submissionButton{
+	width: 100px;
+	float: left;
+	margin-left: 50px;
+}
+
+.registrationButton{
+	width: 100px;
+	float: left;
+	margin-left: 50px;
+}
+
+.markFormBox{
+	width: 690px;
+	float: left;
+}
+

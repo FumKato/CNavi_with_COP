@@ -26,4 +26,8 @@ $(function(){
 	$(document).on('click', '.studentListItem', function(){
 		student_list_controller.student_list_item_clicked($(this));
 	});
+	
+	$('#studentListButtons').find('.backButton').click(function(){
+		cnavi_view.render('lessonList');
+	});
 });

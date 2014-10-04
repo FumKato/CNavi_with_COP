@@ -1,0 +1,53 @@
+#lessonCreationButtons{
+	width: 690px;
+	height: 100px;
+	margin-top: 30px;
+	float: left;
+}
+
+#lessonCreationQuestions{
+	width: 690px;
+	margin-top: 10px;
+	float: left;
+}
+
+.lessonCreationContents{
+	width: 690px;
+	float: left;
+}
+
+.lessonCreationContentsLabel{
+	width: 700px;
+	float: left;
+	font-weight: bold;
+}
+
+.lessonCreationContentsText{
+	width: 300px;
+	float: left;
+}
+
+.lessonCreationButton{
+	width: 100px;
+	float: left;
+	margin-left: 50px;
+}
+
+.lessonCreationContentsTextarea{
+	width: 500px;
+	height: 100px;
+	margin-bottom: 5px;
+	float: left;
+}
+
+.dline{
+	width: 600px;
+	height: 1px;
+	border-bottom: dashed 1px gray;
+	float: left;
+}
+
+.questionAddButton{
+	width: 100px;
+	margin-left: 10px;
+}
