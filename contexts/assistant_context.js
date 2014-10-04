@@ -34,7 +34,24 @@ if(Meteor.isClient){
 			Meteor.subscribe('submissions', Session.get('myself'), $this.attr('id'), function(){
 				cnavi_view.render('studentList');
 			});
+		},
+		
+		// client/controllers/templates/submission_controller.js
+		back_button_clicked: function(){
+			cnavi_view.render('studentList');
+		},
+		
+		// client/controllers/templates/submission_controller.js
+		registration_button_clicked: function(){
+			var scores = new Array();
+			$('.markForm').each(function(){
+				scores.push($(this).val());
+			});
+			submissions_model.set_scores(Session.get('lesson_id'), Session.get('myself').id, scores);
+			alert('Score is registered');
+			cnavi_view.render('lessonList');
 		}
+		
 	};
 
 	assistant_context = new Context('assistant', assistant_context_operations);
