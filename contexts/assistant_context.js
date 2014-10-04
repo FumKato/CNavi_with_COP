@@ -12,7 +12,7 @@ if(Meteor.isClient){
 		
 		// client/views/submission_view.js
 		get_lesson_name: function(){
-			var lesson = this.proceed();
+			var lesson = lessons_model.get_lessons_by_id(Session.get('lesson_id'));
 			var submission = submissions_model.get_submissions_by_user_id(Session.get('lesson_id'), Session.get('student_id'));
 			if(submission == null) return;
 			return lesson.name + ': ' + submission.user_name;
@@ -25,6 +25,7 @@ if(Meteor.isClient){
 			if(questions == null || submissions == null) return;
 			var answers = '<div class="questionListAnswer">TA. ' + questions[0].answers[num] + '</div>' +
 				'<div class="submittedAnswer">A. ' + submissions.answers[num] + '</div>';
+			answers += '<div class="markFormBox">score:<input type="text" class="markForm" name="markForm" /></div>';
 			return answers;
 		},
 		

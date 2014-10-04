@@ -3,7 +3,7 @@ Meteor.publish('submissions', function(user, lesson_id){
 });
 
 SubmissionsController = function(){
-	var _this = SubmissionController;
+	var _this = SubmissionsController;
 	
 	_this.prototype.set_answers = function(lesson_id, user_id, answers){
 		var user = users_model.get_users_by_user_id(user_id);
