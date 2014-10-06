@@ -6,6 +6,21 @@ if(Meteor.isClient){
 				user.name + '</b></div></div>';
 		},
 		
+		// client/views/lesson_list_view.js
+		get_lesson_list_item_class: function(lesson){
+			var className = this.proceed(lesson);
+			var date = new Date();
+			if(lesson.month < date.getMonth() || (lesson.month == date.getMonth() && lesson.date < date.getDate())){
+				className += " overed";
+			}
+			return className;
+		},
+		
+		// client/views_submission_view.js
+		render_button: function(){
+			return '<input type="button" class="submissionButton" value="Submit" />';
+		},
+		
 		// client/controllers/templates/lesson_list_controller.js
 		lesson_list_item_clicked: function($this){
 			this.proceed($this);

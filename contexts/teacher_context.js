@@ -7,16 +7,21 @@ if(Meteor.isClient){
 		},
 		
 		// client/views/lesson_list_view.js
-		get_lesson_list_item_class: function(){
-			return "lessonListItem ";
+		render_create_button: function(){
+			return '<input type="button" class="createButton" value="Create" />';
 		},
 		
 		// client/views/submission_view.js
 		get_lesson_name: function(){
-			var lesson = lessons_model.get_lessons_by_id(Session.get('lesson_id'));
+			var lesson_name = this.proceed();
 			var submission = submissions_model.get_submissions_by_user_id(Session.get('lesson_id'), Session.get('student_id'));
 			if(submission == null) return;
-			return lesson.name + ': ' + submission.user_name;
+			return lesson_name + ': ' + submission.user_name;
+		},
+		
+		// client/views_submission_view.js
+		render_register_button: function(){
+			return '<input type="button" class="registrationButton" value="Register" />';
 		},
 		
 		// client/views/submission_view.js
@@ -32,8 +37,8 @@ if(Meteor.isClient){
 		
 		// client/controllers/templates/lesson_list_controller.js
 		lesson_list_item_clicked: function($this){
+			console.log(this.proceed);
 			this.proceed($this);
-			Session.set('lesson_id', $this.attr('id'));
 			Meteor.subscribe('submissions', Session.get('myself'), $this.attr('id'), function(){
 				cnavi_view.render('studentList');
 			});

@@ -12,12 +12,6 @@ SubmissionView = function(){
 	};
 	
 	_this.prototype.render_button = function(){
-		if(Session.get('myself') == null) return '';
-		if(Session.get('myself').role == 'stundent'){
-			return '<input type="button" class="submissionButton" value="Submit" />';
-		} else if(Session.get('myself').role == 'teacher' || Session.get('myself').role == 'assistant'){
-			return '<input type="button" class="registrationButton" value="Register" />';
-		}
 		return '';
 	};
 };
@@ -40,6 +34,6 @@ Template.submission.helpers({
 	},
 	
 	render_button: function(){
-		return submission_view.render_button();
+		return submission_view.render_button(Session.get('myself'));
 	}
 });

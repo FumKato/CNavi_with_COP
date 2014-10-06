@@ -5,17 +5,17 @@ if(Meteor.isClient){
 				user.name + '</b></div></div>';
 		},
 		
-		// client/views/lesson_list_view.js
-		get_lesson_list_item_class: function(){
-			return "lessonListItem ";
-		},
-		
 		// client/views/submission_view.js
 		get_lesson_name: function(){
-			var lesson = lessons_model.get_lessons_by_id(Session.get('lesson_id'));
+			var lesson_name = this.proceed();
 			var submission = submissions_model.get_submissions_by_user_id(Session.get('lesson_id'), Session.get('student_id'));
 			if(submission == null) return;
-			return lesson.name + ': ' + submission.user_name;
+			return lesson_name + ': ' + submission.user_name;
+		},
+		
+		// client/views_submission_view.js
+		render_button: function(){
+			return '<input type="button" class="registrationButton" value="Register" />';
 		},
 		
 		// client/views/submission_view.js
