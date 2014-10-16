@@ -7,7 +7,7 @@ if(Meteor.isClient){
 		
 		// client/views/submission_view.js
 		get_lesson_name: function(){
-			var lesson_name = this.proceed();
+			var lesson_name = this.proceeds.get_lesson_name();
 			var submission = submissions_model.get_submissions_by_user_id(Session.get('lesson_id'), Session.get('student_id'));
 			if(submission == null) return;
 			return lesson_name + ': ' + submission.user_name;
@@ -31,7 +31,7 @@ if(Meteor.isClient){
 		
 		// client/controllers/templates/lesson_list_controller.js
 		lesson_list_item_clicked: function($this){
-			this.proceed($this);
+			this.proceeds.lesson_list_item_clicked($this);
 			Meteor.subscribe('submissions', Session.get('myself'), $this.attr('id'), function(){
 				cnavi_view.render('studentList');
 			});

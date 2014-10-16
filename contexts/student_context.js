@@ -8,7 +8,7 @@ if(Meteor.isClient){
 		
 		// client/views/lesson_list_view.js
 		get_lesson_list_item_class: function(lesson){
-			var className = this.proceed(lesson);
+			var className = this.proceeds.get_lesson_list_item_class(lesson);
 			var date = new Date();
 			if(lesson.month < date.getMonth() || (lesson.month == date.getMonth() && lesson.date < date.getDate())){
 				className += " overed";
@@ -23,7 +23,7 @@ if(Meteor.isClient){
 		
 		// client/controllers/templates/lesson_list_controller.js
 		lesson_list_item_clicked: function($this){
-			this.proceed($this);
+			this.proceeds.lesson_list_item_clicked($this);
 			if(!$this.hasClass('overed')){
 				Meteor.subscribe('questions', Session.get('myself'), $this.attr('id'), function(){
 					cnavi_view.render('submission');
