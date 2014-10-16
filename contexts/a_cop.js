@@ -1,26 +1,32 @@
 Context = function(name, operations){
 		var name = name;
 		var operations = operations;
-		var validation = false;
+		var proceeds = new Array();
+		var proceed = function(functionName){
+			return this.proceeds[functionName]();
+		};
 		
 		return {
 			adapt: function(object, functionName, operationName) {
-				//TODO: enable check context's validation
 				var command = 'var tmp = {' +
-					'proceed: ' + object + '.prototype.' + functionName + ',' +
-					functionName + ': operations.' + operationName +
+					'proceed: proceed,' +
+					functionName + ': operations.' + operationName + ',' +
 				'};' +
-				'_.extend(' + object + '.prototype, tmp);' + 
-				'_.extend(' + object + '.prototype,' + 'tmp);';
+				'if(' + object + '.prototype.proceeds == null){' +
+					object + '.prototype.proceeds = {};' +
+				'}' +
+				object + '.prototype.proceeds.' + functionName + ' = ' + object + '.prototype.' + functionName + ';' +
+				'_.extend(' + object + '.prototype, tmp);';	
 				eval(command);
 			},
 			
-			activate: function(){
-				validation = true;
-			},
-			
-			deactivate: function(){
-				validation = false;
+			deactivate: function(object, functionName) {
+				var command = 'if(' + object + '.prototype.proceeds != null){' +
+					'var tmp = {' +
+					functionName + ': ' + object + '.prototype.proceeds.' + functionName +
+				'};' +
+				'_.extend(' + object + '.prototype, tmp);};';
+				eval(command);
 			}
 		};
 };
