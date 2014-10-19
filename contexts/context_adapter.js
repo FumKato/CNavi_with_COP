@@ -34,3 +34,39 @@ if(Meteor.isClient){
 		}
 	});
 }
+
+if(Meteor.isServer) {
+	adapt_context = function(user_id){
+		var user = users_model.get_users_by_user_id(user_id);
+		switch(user.role){
+			case 'teacher':
+				teacher_context.adapt('LessonsController', 'set_lessons', 'set_lessons');
+				teacher_context.adapt('QuestionsController', 'set_questions', 'set_questions');
+				teacher_context.adapt('SubmissionsController', 'set_scores', 'set_scores');
+				break;
+			case 'assistant':
+				assistant_context.adapt('SubmissionsController', 'set_scores', 'set_scores');
+				break;
+			case 'student':
+				student_context.adapt('SubmissionsController', 'set_answers', 'set_answers');
+				break;
+		}
+	};
+	
+	deactivate_context = function(user_id){
+		var user = users_model.get_users_by_user_id(user_id);
+		switch(user.role){
+			case 'teacher':
+				teacher_context.deactivate('LessonsController', 'set_lessons');
+				teacher_context.deactivate('QuestionsController', 'set_questions');
+				teacher_context.deactivate('SubmissionsController', 'set_scores');
+				break;
+			case 'assistant':
+				assistant_context.deactivate('SubmissionsController', 'set_scores');
+				break;
+			case 'student':
+				student_context.deactivate('SubmissionsController', 'set_answers');
+				break;
+		}
+	};
+}

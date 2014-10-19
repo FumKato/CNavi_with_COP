@@ -6,9 +6,7 @@ QuestionsController = function(){
 	var _this = QuestionsController;
 	
 	_this.prototype.set_questions = function(lesson_id, user_id, questions, answers){
-		var user = users_model.get_users_by_user_id(user_id);
-		if(user == null || user.role != 'teacher') return;
-		questions_model.set_questions(lesson_id, questions, answers);
+		// Default: Do nothing
 	};
 };
 
@@ -16,6 +14,8 @@ questions_controller = new QuestionsController();
 
 Meteor.methods({
 	set_questions: function(lesson_id, user_id, questions, answers){
+		adapt_context(user_id);
 		questions_controller.set_questions(lesson_id, user_id, questions, answers);
+		deactivate_context(user_id);
 	}
 });

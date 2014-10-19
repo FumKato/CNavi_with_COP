@@ -68,3 +68,24 @@ if(Meteor.isClient){
 	teacher_context = new Context('teacher', teacher_context_operations);
 }
 
+if(Meteor.isServer){
+	teacher_context_operations = {
+		// server/controllers/lessons_controller.js
+		set_lessons: function(class_id, user_id, lesson_name, lesson_date){
+			return lessons_model.set_lessons(class_id, lesson_name, lesson_date);
+		},
+		
+		// server/controllers/questions_controller.js
+		set_questions: function(lesson_id, user_id, questions, answers) {
+			questions_model.set_questions(lesson_id, questions, answers);
+		},
+		
+		// server/controllers/submissions_controller.js
+		set_scores: function(lesson_id, user_id, scores){
+			var user = this.proceeds.set_scores(lesson_id, user_id, scores);
+			submissions_model.set_submissions(user_id, user.name, lesson_id, scores);
+		}
+	};
+	
+	teacher_context = new Context('teacher', teacher_context_operations);
+}

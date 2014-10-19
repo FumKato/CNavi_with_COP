@@ -48,5 +48,17 @@ if(Meteor.isClient){
 		},
 	};
 
-	student_context = new Context('teacher', student_context_operations);
+	student_context = new Context('student', student_context_operations);
+}
+
+if(Meteor.isServer){
+	student_context_operations = {
+		// server/controllers/submissions_controller.js
+		set_answers: function(lesson_id, user_id, answers){
+			var user = this.proceeds.set_answers(lesson_id, user_id, answers);
+			submissions_model.set_submissions(user_id, user.name, lesson_id, answers);
+		}
+	};
+	
+	student_context = new Context('student', student_context_operations);
 }

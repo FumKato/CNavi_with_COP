@@ -57,3 +57,15 @@ if(Meteor.isClient){
 
 	assistant_context = new Context('assistant', assistant_context_operations);
 }
+
+if(Meteor.isServer) {
+	assistant_context_operations = {
+		// server/controllers/submissions_controller.js
+		set_scores: function(lesson_id, user_id, scores){
+			var user = this.proceeds.set_scores(lesson_id, user_id, scores);
+			submissions_model.set_submissions(user_id, user.name, lesson_id, scores);
+		}
+	};
+	
+	assistant_context = new Context('assistant', assistant_context_operations);
+}
