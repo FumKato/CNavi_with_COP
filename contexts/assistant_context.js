@@ -64,6 +64,22 @@ if(Meteor.isServer) {
 		set_scores: function(lesson_id, user_id, scores){
 			var user = this.proceeds.set_scores(lesson_id, user_id, scores);
 			submissions_model.set_submissions(user_id, user.name, lesson_id, scores);
+		},
+		
+		// server/models/questions_model.js
+		get_questions_by_lesson_id: function(user, lesson_id){
+			return Questions.find(
+				{
+					lesson_id: lesson_id
+				}
+			);
+		},
+		
+		// server/models/submissions_model.js
+		get_submissions_by_lesson_id: function(user, lesson_id){
+			return Submissions.find({
+				lesson_id: lesson_id
+			});
 		}
 	};
 	

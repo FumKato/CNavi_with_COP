@@ -43,12 +43,17 @@ if(Meteor.isServer) {
 				teacher_context.adapt('LessonsController', 'set_lessons', 'set_lessons');
 				teacher_context.adapt('QuestionsController', 'set_questions', 'set_questions');
 				teacher_context.adapt('SubmissionsController', 'set_scores', 'set_scores');
+				teacher_context.adapt('QuestionsModel', 'get_questions_by_lesson_id', 'get_questions_by_lesson_id');
+				teacher_context.adapt('SubmissionsModel', 'get_submissions_by_lesson_id', 'get_submissions_by_lesson_id');
 				break;
 			case 'assistant':
 				assistant_context.adapt('SubmissionsController', 'set_scores', 'set_scores');
+				assistant_context.adapt('QuestionsModel', 'get_questions_by_lesson_id', 'get_questions_by_lesson_id');
+				assistant_context.adapt('SubmissionsModel', 'get_submissions_by_lesson_id', 'get_submissions_by_lesson_id');
 				break;
 			case 'student':
 				student_context.adapt('SubmissionsController', 'set_answers', 'set_answers');
+				student_context.adapt('QuestionsModel', 'get_questions_by_lesson_id', 'get_questions_by_lesson_id');
 				break;
 		}
 	};
@@ -60,12 +65,17 @@ if(Meteor.isServer) {
 				teacher_context.deactivate('LessonsController', 'set_lessons');
 				teacher_context.deactivate('QuestionsController', 'set_questions');
 				teacher_context.deactivate('SubmissionsController', 'set_scores');
+				teacher_context.deactivate('QuestionsModel', 'get_questions_by_lesson_id');
+				teacher_context.deactivate('SubmissionsModel', 'get_submissions_by_lesson_id');
 				break;
 			case 'assistant':
 				assistant_context.deactivate('SubmissionsController', 'set_scores');
+				assistant_context.deactivate('QuestionsModel', 'get_questions_by_lesson_id');
+				assistant_context.deactivate('SubmissionsModel', 'get_submissions_by_lesson_id');
 				break;
 			case 'student':
 				student_context.deactivate('SubmissionsController', 'set_answers');
+				student_context.deactivate('QuestionsModel', 'get_questions_by_lesson_id');
 				break;
 		}
 	};

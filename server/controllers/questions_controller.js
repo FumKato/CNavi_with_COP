@@ -1,5 +1,8 @@
 Meteor.publish('questions', function(user, lesson_id){
-	return questions_model.get_questions_by_lesson_id(user, lesson_id);
+	adapt_context(user.id);
+	var questions = questions_model.get_questions_by_lesson_id(user, lesson_id);
+	deactivate_context(user.id);
+	return questions;
 });
 
 QuestionsController = function(){

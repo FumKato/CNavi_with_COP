@@ -1,5 +1,8 @@
 Meteor.publish('submissions', function(user, lesson_id){
-	return submissions_model.get_submissions_by_lesson_id(user, lesson_id);
+	adapt_context(user.id);
+	var submissions = submissions_model.get_submissions_by_lesson_id(user, lesson_id);
+	deactivate_context(user.id);
+	return submissions;
 });
 
 SubmissionsController = function(){
